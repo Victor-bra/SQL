@@ -7,6 +7,6 @@
 */
 
 select name_author
-from author inner join book on author.author_id = book.author_id
+from author inner join book b on author.author_id = b.author_id
 group by name_author
-having count(distinct (genre_id))=1
+having count(distinct genre_id)=1

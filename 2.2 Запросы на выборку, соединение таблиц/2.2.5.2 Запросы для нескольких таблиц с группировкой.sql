@@ -5,8 +5,8 @@
 по возрастанию количества виде. Последний столбец назвать Количество.
 */
 
-select name_author, if(sum(amount) is null, null, sum(amount)) as 'Количество'
-from author left join book on author.author_id = book.author_id
+select name_author, sum(amount) as 'Количество'
+from author left join book b on author.author_id = b.author_id
 group by name_author
 having Количество<10 or Количество is null
-order by 2;
+order by 2
